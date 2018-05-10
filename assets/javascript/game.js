@@ -74,7 +74,6 @@
         round++;
 
         if (round < 9) {
-
             if(guessLowerCase == computerLetter) {
                 wins++;
                 alert("You win! I was thinking of the letter: " + computerLetter);
