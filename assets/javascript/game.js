@@ -73,7 +73,7 @@
         console.log("round: " + round);
         round++;
 
-        if (round < 10) {
+        if (round < 9) {
 
             if(guessLowerCase == computerLetter) {
                 wins++;
@@ -86,7 +86,7 @@
                 updateGuesses();
                 updateLetters();
             }
-        } else if (round > 9) {
+        } else {
             alert("Sorry, you ran out of guesses. I was thinking of the letter: " + computerLetter);
             losses++;
             updateLosses();
