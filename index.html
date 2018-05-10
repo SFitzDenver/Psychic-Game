@@ -7,106 +7,18 @@
   <body>
 
     <h1>The Psychic Game</h1>
+
+    <h2>Guess what letter I'm thinking of... (you have 9 guesses)</h2>
     <br>
-
-    <p>Guess what letter I'm thinking of... (you have 9 guesses)</p>
+    <h3 id="wins">Wins: </h3>
+    <h3 id="losses">Losses: </h3>
     <br>
-    <p id="wins">Wins: 0</p>
-    <p id="losses">Losses: 0</p>
-    <br>
-    <p id="guesses-left">Guesses Left: 9</p>
-    <p id="guesses">Your Guesses so far: 0</p>
+    <h3 id="guesses">Number of guesses: 0</h3>
+    <h3 id="guesses-left">Guesses Remaining: 9</h3>
+    <h3 id="lettersGuessedAlready">Letters you have already guessed: </h3>
 
-    <script type = "text/javascript">
+    <script type="text/javascript" src="./assets/javascript/game.js">
 
-// <!-- pseudo code
-
-// computer has to randomly select a letter
-// user has to enter a guess
-// keep track of tries (up to 9)
-// compare computer letter and user letter
-// if match, user wins
-// if no match, next guess
-// if none match, computer wins
-// display new count of wins and losses -->
-
-    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-    var computerLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-        console.log(computerLetter);
-        var computerLetterLower = computerLetter.toLowerCase();
-
-    var round = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    var wins=0;
-    var losses=0;
-    var tries=0;
-
-    document.onkeyup = function(event) {
-    var uGuess = event.key;
-    var guessLowerCase = uGuess.toLowerCase();
-    console.log(uGuess);
-    }
-
-    function userGuess() {
-        document.onkeyup = function(event) {
-        var uGuess = event.key;
-        var guessLowerCase = uGuess.toLowerCase();
-        console.log(guessLowerCase);
-        }
-    }
-
-    function updateWins() {
-        document.querySelector("#wins").innerHTML = "Wins: " + wins;
-    }
-
-    function updateLosses() {
-        document.querySelector("#losses").innerHTML = "Losses: " + losses;
-    }
-
-    function updateLeft() {
-        document.querySelector("#guesses-left").innerHTML = "Guesses-left: " + ("9" - tries);
-    }
-
-    function updateGuesses() {
-        document.querySelector("#guesses").innerHTML = "Your guesses so far: " + tries;
-    }
-
-    function userLetters() {
-    	var uGuess = event.key;
-        var guessLowerCase = uGuess.toLowerCase();
-        var para = document.createElement("P");
-    	var t = document.createTextNode("Guess: " + guessLowerCase);
-    		para.appendChild(t);
-    		document.body.appendChild(para);
-    }
-
-
-        for (var i=1; i<round.length; i++) {
-            document.onkeyup = function(event) {
-            var uGuess = event.key;
-            var guessLowerCase = uGuess.toLowerCase();
-            console.log(guessLowerCase);
-        if((guessLowerCase == computerLetterLower)) {
-            wins++;
-            alert("You win!");
-            updateWins();
-            // return;
-        } else if(tries < 8) {
-            tries++;
-            console.log(tries);
-            updateLeft();
-            updateGuesses();
-            userLetters();
-        } else {
-            losses++;
-            alert("Sorry, you lose. I was thinking of the letter " + computerLetterLower + ".");
-            updateLosses();
-            // return;
-            }    
-        }   
-        }
-
-
-</script>
-</body>
+    </script>
+  </body>
 </html>
